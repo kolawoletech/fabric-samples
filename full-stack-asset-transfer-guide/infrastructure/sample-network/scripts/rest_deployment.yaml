@@ -20,7 +20,7 @@ spec:
             secretName: my-secret
       containers:
         - name: rest-api
-          image: localhost:5000/rest-api:latest
+          image: localhost:5000/rest-api:2.2
           ports:
             - containerPort: 8080
           volumeMounts:

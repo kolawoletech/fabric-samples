@@ -4,15 +4,15 @@ on:
   workflow_call:
     inputs:
       imagename:
-        description: 'A Docker image name passed from the caller workflow'
+        description: "A Docker image name passed from the caller workflow"
         required: true
         type: string
       path:
-        description: 'A path containing a Dockerfile passed from the caller workflow'
+        description: "A path containing a Dockerfile passed from the caller workflow"
         required: true
         type: string
       chaincode-label:
-        description: 'An optional chaincode package label passed from the caller workflow.  If present, will prepare a chaincode package.'
+        description: "An optional chaincode package label passed from the caller workflow.  If present, will prepare a chaincode package."
         required: false
         type: string
 
@@ -30,7 +30,7 @@ jobs:
           docker tag ${IMAGE_NAME} ghcr.io/hyperledgendary/${IMAGE_NAME}:${GITHUB_SHA}
           if [ "${GITHUB_REF:0:10}" = "refs/tags/" ]; then
             docker tag ${IMAGE_NAME} ghcr.io/hyperledgendary/${IMAGE_NAME}:${GITHUB_REF_NAME}
-            docker tag ${IMAGE_NAME} ghcr.io/hyperledgendary/${IMAGE_NAME}:latest
+            docker tag ${IMAGE_NAME} ghcr.io/hyperledgendary/${IMAGE_NAME}:2.2
           fi
         env:
           DOCKER_BUILD_PATH: ${{ inputs.path }}
@@ -43,7 +43,7 @@ jobs:
           docker push ghcr.io/hyperledgendary/${IMAGE_NAME}:${GITHUB_SHA}
           if [ "${GITHUB_REF:0:10}" = "refs/tags/" ]; then
             docker push ghcr.io/hyperledgendary/${IMAGE_NAME}:${GITHUB_REF_NAME}
-            docker push ghcr.io/hyperledgendary/${IMAGE_NAME}:latest
+            docker push ghcr.io/hyperledgendary/${IMAGE_NAME}:2.2
           fi
           echo ::set-output name=image_digest::$(docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/hyperledgendary/${IMAGE_NAME}:${GITHUB_SHA} | cut -d'@' -f2)
         env:

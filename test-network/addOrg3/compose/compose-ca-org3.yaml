@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-version: '3.7'
+version: "3.7"
 
 networks:
   test:
@@ -11,7 +11,7 @@ networks:
 
 services:
   ca_org3:
-    image: hyperledger/fabric-ca:latest
+    image: hyperledger/fabric-ca:2.3
     labels:
       service: hyperledger-fabric
     environment:

@@ -69,7 +69,7 @@ context CONSOLE_PASSWORD          password
 context CHANNEL_NAME              mychannel
 context ORDERER_TIMEOUT           15s
 context CHAINCODE_NAME            asset-transfer-basic
-context CHAINCODE_IMAGE           ghcr.io/hyperledgendary/fabric-ccaas-asset-transfer-basic:latest
+context CHAINCODE_IMAGE           ghcr.io/hyperledgendary/fabric-ccaas-asset-transfer-basic:2.2
 context CHAINCODE_LABEL           basic_1.0
 
 context CA_IMAGE                  ${FABRIC_CONTAINER_REGISTRY}/fabric-ca

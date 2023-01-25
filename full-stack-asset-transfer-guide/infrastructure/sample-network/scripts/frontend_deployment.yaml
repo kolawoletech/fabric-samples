@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: localhost:5000/frontend:latest
+          image: localhost:5000/frontend:2.2
           ports:
             - containerPort: 80
 ---
@@ -31,7 +31,6 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-
 
   # kubectl create secret generic client-secret --from-file=keyPath=/home/ramdisk/my-full-stack/infrastructure/sample-network/temp/enrollments/org1/users/org1user/msp/keystore/key.pem --from-file=certPath=/home/ramdisk/my-full-stack/infrastructure/sample-network/temp/enrollments/org1/users/org1user/msp/signcerts/cert.pem --from-file=tlsCertPath=/home/ramdisk/my-full-stack/infrastructure/sample-network/temp/channel-msp/peerOrganizations/org1/msp/tlscacerts/tlsca-signcert.pem -n test-network
 ---

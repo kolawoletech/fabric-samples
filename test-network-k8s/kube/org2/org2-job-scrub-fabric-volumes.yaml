@@ -18,7 +18,7 @@ spec:
       restartPolicy: "Never"
       containers:
         - name: main
-          image: busybox:latest
+          image: busybox:2.2
           command:
             - sh
             - -c
@@ -30,4 +30,3 @@ spec:
         - name: fabric-org2-volume
           persistentVolumeClaim:
             claimName: fabric-org2
-
